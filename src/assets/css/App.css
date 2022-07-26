@@ -1,6 +1,7 @@
 * {box-sizing: border-box;}
 
 .img-magnifier-container {
+    align-items: center;
   position:relative;
   height: 100vh;
 }
@@ -11,7 +12,7 @@
   border-radius: 50%;
   cursor: none;
   /*Set the size of the magnifier glass:*/
-  width: 100px;
+  width: 100px ;
   height: 100px;
   z-index: 1;
 }
@@ -65,3 +66,21 @@
     width: 10%;
     height: 10%;
 }
+.title{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    right: 10%;
+    width: 50%;
+    height: 10%;
+    color: rgb(red,0,0);
+}
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+  }

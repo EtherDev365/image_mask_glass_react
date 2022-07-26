@@ -24,6 +24,7 @@ function FirstPage() {
     var buttonX1, buttonY1, buttonX1_point, buttonY1_point, button1_width, button1_point_width, button1_hight, button1_point_hight;
     var buttonX2, buttonY2, buttonX2_point, buttonY2_point, button2_width, button2_point_width, button2_hight, button2_point_hight;
     var buttonX3, buttonY3, buttonX3_point, buttonY3_point, button3_width, button3_point_width, button3_hight, button3_point_hight;
+    var distance1, distance2, distance3, minDistance;
     glass.current= document.createElement("DIV");
     glass.current.setAttribute("class", "img-magnifier-glass");
     glass.current.setAttribute("id", "glass");
@@ -33,8 +34,10 @@ function FirstPage() {
     img.current.parentElement.insertBefore(glass.current, img.current);
     glass.current.style.backgroundImage = "url('" + background + "')";
     glass.current.style.backgroundRepeat = "no-repeat";
-    glass.current.style.transitionDuration = "0.5s";
-    glass.current.style.transitionProperty = "transform";
+    // glass.current.style.transitionDuration = "0.1s";
+    // glass.current.style.width = "100px";
+    // glass.current.style.height = "100px"
+    // glass.current.style.transitionProperty = "width,height";
     glass.current.style.backgroundSize = (img.current.width * zoom) + "px " + (img.current.height * zoom) + "px";
     setBW(3);
     setW(glass.current.offsetWidth / 2);
@@ -47,6 +50,19 @@ function FirstPage() {
       pos = getCursorPos(e);
       x = pos.x;
       y = pos.y;
+
+      distance1 = Math.sqrt(Math.pow(Math.abs(x-button1_Point.current.getBoundingClientRect().x),2)+Math.pow(Math.abs(y-button1_Point.current.getBoundingClientRect().y),2))
+      distance2 = Math.sqrt(Math.pow(Math.abs(x-button2_Point.current.getBoundingClientRect().x),2)+Math.pow(Math.abs(y-button2_Point.current.getBoundingClientRect().y),2))
+      distance3 = Math.sqrt(Math.pow(Math.abs(x-button3_Point.current.getBoundingClientRect().x),2)+Math.pow(Math.abs(y-button3_Point.current.getBoundingClientRect().y),2))
+
+      minDistance = parseInt(getMinValue(distance1,distance2, distance3));
+
+      //if(minDistance < 200){
+        //glass.current.style.transform = "scale("+(0.7+500/minDistance)+") translate(0%, 0%)"
+
+      //}else{
+        //glass.current.style.transform = "scale(1) translate(0%, 0%)"
+      //}
 
       buttonX1 = button1.current.getBoundingClientRect().x
       buttonX1_point = button1_Point.current.getBoundingClientRect().x
@@ -80,7 +96,7 @@ function FirstPage() {
           (x > buttonX3 &&x < buttonX3+button3_width && y > buttonY3 && y < buttonY3+button3_hight)){
           if(cursorState === false){
             cursorState = true;
-            glass.current.style.transform = "scale(2) translate(0%, 0%)"
+            //glass.current.style.transform = "scale(2) translate(0%, 0%)"
           }
           if(x > buttonX1_point && x < buttonX1_point+button1_point_width && y > buttonY1_point && y < buttonY1_point+button1_point_hight){
             navigate('/main#about', { replace: true });
@@ -93,7 +109,7 @@ function FirstPage() {
           }
       }else if(cursorState === true){
         cursorState = false;
-        glass.current.style.transform = "scale(1) translate(0%, 0%)"
+        //glass.current.style.transform = "scale(1) translate(0%, 0%)"
       }
       /*prevent the magnifier glass from being positioned outside the image:*/
       if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
@@ -101,10 +117,27 @@ function FirstPage() {
       if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
       if (y < h / zoom) {y = h / zoom;}
       /*set the position of the magnifier glass:*/
-      glass.current.style.left = (x - w) + "px";
-      glass.current.style.top = (y - h) + "px";
+      glass.current.style.width = (100 + 10000/minDistance) + "px";
+      glass.current.style.height =(100 + 10000/minDistance)+ "px";
+      glass.current.style.left = (x-(100 + 10000/minDistance)/2) + "px";
+      glass.current.style.top = (y-(100 + 10000/minDistance)/2) + "px";
       /*display what the magnifier glass "sees":*/
-      glass.current.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+      glass.current.style.backgroundPosition = "-" + ((x * zoom) - ((100 + 10000/minDistance)/2) - w + bw) + "px -" + ((y * zoom) - ((100 + 10000/minDistance)/2) - h + bw) + "px";
+    }
+    function getMinValue(x,y,z){
+      if(x < y){
+        if(x < z){
+          return x;
+        }else{
+          return z;
+        }
+      }else{
+        if( y < z){
+          return y;
+        }else{
+          return z;
+        }
+      }
     }
     function getCursorPos(e) {
       var a, x = 0, y = 0;
@@ -145,6 +178,7 @@ function FirstPage() {
           <div className='button3_point' ref={button3_Point}></div>
         </div>
       </div>
+      <div className="title"><h2> Please find special Point, that point will lead you new page.</h2></div>
     </>
   );
 }
