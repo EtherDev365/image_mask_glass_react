@@ -7,14 +7,14 @@
 }
 
 .img-magnifier-glass {
-  position: absolute;
+  position: absolute ;
   border: 3px solid #000;
   border-radius: 50%;
   cursor: none;
   /*Set the size of the magnifier glass:*/
   width: 100px ;
   height: 100px;
-  z-index: 1;
+  z-index: 999999;
 }
 .button1{
     position: absolute;

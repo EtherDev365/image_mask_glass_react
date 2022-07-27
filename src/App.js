@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Index from './pages/FirstPage';
 import Main from './pages/Main';
+import Home from './pages/Home';
 import {TransitionGroup, CSSTransition} from 'react-transition-group'
 function App() {
   const location = useLocation();
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Index />} />
             <Route path="/main" element={<Main />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

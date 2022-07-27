@@ -99,13 +99,15 @@ function FirstPage() {
             //glass.current.style.transform = "scale(2) translate(0%, 0%)"
           }
           if(x > buttonX1_point && x < buttonX1_point+button1_point_width && y > buttonY1_point && y < buttonY1_point+button1_point_hight){
-            navigate('/main#about', { replace: true });
+            navigate('/Home', { replace: true });
           }
           if(x > buttonX2_point && x < buttonX2_point+button2_point_width && y > buttonY2_point && y < buttonY2_point+button2_point_hight){
-            navigate('/main#services', { replace: true });
+            navigate('/Home', { replace: true });
+            // navigate('/main#services', { replace: true });
           }
           if(x > buttonX3_point && x < buttonX3_point+button3_point_width && y > buttonY3_point && y < buttonY3_point+button3_point_hight){
-            navigate('/main#portfolio', { replace: true });
+            navigate('/Home', { replace: true });
+            // navigate('/main#portfolio', { replace: true });
           }
       }else if(cursorState === true){
         cursorState = false;
@@ -167,7 +169,7 @@ function FirstPage() {
   return (
     <>
       <div className="img-magnifier-container" >
-        <img src={BlackBack} width="100%" height="100%" alt="error" ref={img}/>
+        <img src={background} width="100%" height="100%" alt="error" ref={img}/>
         <div className='button1' ref={button1}>
           <div className='button1_point' ref={button1_Point}></div>
         </div>
