@@ -169,7 +169,7 @@ function FirstPage() {
   return (
     <>
       <div className="img-magnifier-container" >
-        <img src={background} width="100%" height="100%" alt="error" ref={img}/>
+        <img src={BlackBack} width="100%" height="100%" alt="error" ref={img}/>
         <div className='button1' ref={button1}>
           <div className='button1_point' ref={button1_Point}></div>
         </div>
