@@ -80,6 +80,7 @@ const Slider = function ({ width, height, autoPlay, autoPlayTime }) {
     return () => {
       clearInterval(interval);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items.length, slide]); // when images uploaded or slide changed manually we start timer
 
   return (
