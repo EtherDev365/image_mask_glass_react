@@ -1,6 +1,6 @@
 import React from "react";
-import SlideTitle from "./SlideTitle";
-import SlideImage from "./SlideImage";
+// import SlideTitle from "./SlideTitle";
+// import SlideImage from "./SlideImage";
 import "../../assets/css/styles.scss";
 
 
