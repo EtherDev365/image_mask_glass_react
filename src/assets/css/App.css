@@ -66,21 +66,102 @@
     width: 10%;
     height: 10%;
 }
-.title{
+.main-title{
     position: absolute;
+    bottom: 10%;
+    left: 25%;
+    right: 10%;
+    width: 50%;
+    height: 10%;
+    color: #EF7C27;
+}
+.main-description{
+  position: absolute;
     top: 10%;
     left: 25%;
     right: 10%;
     width: 50%;
     height: 10%;
-    color: rgb(red,0,0);
+    color: #EF7C27;
+    transform: rotate(-5deg);
 }
 .fade-enter {
     opacity: 0;
     z-index: 1;
   }
-  
   .fade-enter.fade-enter-active {
     opacity: 1;
     transition: opacity 250ms ease-in;
   }
+  
+.item-1, 
+.item-2, 
+.item-3 {
+	position: absolute;
+  display: block;
+	top: 2em;
+  
+  width: 60%;
+  
+  font-size: 2em;
+
+	animation-duration: 15s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+.item-text{
+  position: absolute;
+  display: block;
+	top: 2em;
+  width: 60%;
+  font-size: 2em;
+	animation-duration: 5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+  animation-name: anim-text;
+}
+@keyframes anim-text {
+	0%, 15% { left: -100%; opacity: 0; }
+  15%, 70% { left: 10%; opacity: 1; }
+  90%, 100% { left: 110%; opacity: 0; }
+}
+
+.item-1{
+	animation-name: anim-1;
+}
+
+.item-2{
+	animation-name: anim-2;
+}
+
+.item-3{
+	animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+	0%, 8.3% { left: -100%; opacity: 0; }
+  8.3%,25% { left: 25%; opacity: 1; }
+  33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+	0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 25%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+	0%, 66.66% { left: -100%; opacity: 0; }
+  74.96%, 91.62% { left: 25%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+
+
+.toggle > span{
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}

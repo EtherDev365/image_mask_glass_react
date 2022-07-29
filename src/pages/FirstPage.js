@@ -99,14 +99,14 @@ function FirstPage() {
             //glass.current.style.transform = "scale(2) translate(0%, 0%)"
           }
           if(x > buttonX1_point && x < buttonX1_point+button1_point_width && y > buttonY1_point && y < buttonY1_point+button1_point_hight){
-            navigate('/Home', { replace: true });
+            navigate('/home', { replace: true });
           }
           if(x > buttonX2_point && x < buttonX2_point+button2_point_width && y > buttonY2_point && y < buttonY2_point+button2_point_hight){
-            navigate('/Home', { replace: true });
+            navigate('/home', { replace: true });
             // navigate('/main#services', { replace: true });
           }
           if(x > buttonX3_point && x < buttonX3_point+button3_point_width && y > buttonY3_point && y < buttonY3_point+button3_point_hight){
-            navigate('/Home', { replace: true });
+            navigate('/home', { replace: true });
             // navigate('/main#portfolio', { replace: true });
           }
       }else if(cursorState === true){
@@ -180,7 +180,8 @@ function FirstPage() {
           <div className='button3_point' ref={button3_Point}></div>
         </div>
       </div>
-      <div className="title"><h2> Please find special Point, that point will lead you new page.</h2></div>
+      <div className="main-title"><h2> Difficult to capture the perfect moment?</h2></div>
+      <div className="main-description"><h4> Difficult to capture the perfect moment?</h4></div>
     </>
   );
 }

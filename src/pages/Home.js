@@ -1,6 +1,6 @@
 import React from 'react';
-import "../assets/css/integrity-light.css"
-import "../assets/css/cs-inline-css.css"
+// import "../assets/css/integrity-light.css"
+// import "../assets/css/cs-inline-css.css"
 import Logo from "../assets/images/logo.png"
 import { useLocation } from 'react-router-dom'
 

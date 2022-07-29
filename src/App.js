@@ -1,22 +1,17 @@
 import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Index from './pages/FirstPage';
 import Main from './pages/Main';
-import Home from './pages/Home';
-import {TransitionGroup, CSSTransition} from 'react-transition-group'
+import Slider from './pages/Slider';
 function App() {
-  const location = useLocation();
   return (
     <div>
-      <TransitionGroup>
-        <CSSTransition timeout={300} classNames='fade' key={location.key}>
-          <Routes>
-            <Route exact path="/" element={<Index />} />
-            <Route path="/main" element={<Main />} />
-            <Route path="/home" element={<Home />} />
-          </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+        <Routes>
+          <Route exact path="/" element={<Index />} />
+          {/* <Route path="/main" element={<Main />} />*/}
+          <Route path="/main" element={<Main />} /> 
+          <Route path="/home" element={<Slider width={'100%'} height={'100%'} autoPlay={true} autoPlayTime={5000} />} />
+        </Routes>
     </div>
   );
 }
